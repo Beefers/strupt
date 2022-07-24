@@ -1,7 +1,7 @@
 {
   "name": "strupt",
-  "version": "1.0.0",
-  "description": "A string corruptor.",
+  "version": "1.0.1",
+  "description": "A string 'encryptor'.",
   "main": "dist/index.js",
   "typings": "src/index.d.ts",
   "scripts": {
