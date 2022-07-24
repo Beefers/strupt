@@ -1,0 +1,28 @@
+{
+  "name": "strupt",
+  "version": "1.0.0",
+  "description": "A string corruptor.",
+  "main": "dist/index.js",
+  "typings": "src/index.d.ts",
+  "scripts": {
+    "start": "node .",
+    "build": "rimraf dist && tsc",
+    "prepack": "npm run build"
+  },
+  "author": "Beef",
+  "license": "BSD-3-Clause",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beefers/strupt.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Beefers/strupt/issues"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "an-array-of-english-words": "^2.0.0"
+  }
+}
