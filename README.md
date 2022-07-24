@@ -6,7 +6,7 @@ A string "encryptor".
 
 ```ts
 // Import encrypt and decrypt
-import { encrypt, decrypt } from "strupt"
+import { encrypt, decrypt } from "strupt";
 
 // Define our string to encrypt
 const toEncrypt = "Hello World!";
@@ -24,6 +24,7 @@ console.log(`DECRYPTED:\n${decrypted}\n`);
 ```
 
 ### Example output
+
 ```
 ORIGINAL:
 Hello World!
