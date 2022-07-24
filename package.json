@@ -1,9 +1,9 @@
 {
   "name": "strupt",
-  "version": "1.0.1",
+  "version": "1.0.2-1",
   "description": "A string 'encryptor'.",
   "main": "dist/index.js",
-  "typings": "src/index.d.ts",
+  "types": "src/def.d.ts",
   "scripts": {
     "start": "node .",
     "build": "rimraf dist && tsc",

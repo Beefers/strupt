@@ -4,6 +4,9 @@ import words from "an-array-of-english-words";
 // Import a list of emojis
 import emojis from "./lib/emojis";
 
+// Import types
+import { Key, EncryptionOptions } from "strupt";
+
 export function encrypt(string: string, options: EncryptionOptions = { emojis: true, words: true }) {
     // Check that atleast one of the options is true
     if (!options.emojis && !options.words) {
