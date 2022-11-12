@@ -8,6 +8,6 @@ declare module "strupt" {
         words?: boolean;
     }
 
-    export function encrypt(string: string, options: EncryptionOptions): { string: string, key: string }; 
+    export function encrypt(string: string, options: EncryptionOptions): { string: string, key: Key }; 
     export function decrypt(string: string, key: Key): string; 
 }
