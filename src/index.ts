@@ -7,7 +7,7 @@ import emojis from "./lib/emojis";
 // Import types
 import { Key, EncryptionOptions } from "strupt";
 
-export function encrypt(string: string, options: EncryptionOptions = { emojis: true, words: true }) {
+export function encrypt(string: string, options: EncryptionOptions = { emojis: true, words: true }): { string: string, key: Key } {
     // Check that atleast one of the options is true
     if (!options.emojis && !options.words) {
         throw new Error("At least one of the options must be true");
@@ -55,7 +55,7 @@ export function encrypt(string: string, options: EncryptionOptions = { emojis: t
     };
 }
 
-export function decrypt(string: string, key: Key) {
+export function decrypt(string: string, key: Key): string {
     // Prepare an array to build the decrypted string
     let decryptedString = [];
 
@@ -72,6 +72,9 @@ export function decrypt(string: string, key: Key) {
             decryptedString.push(v[1] ? letter.toUpperCase() : letter.toLowerCase());
         }
     }
+
+    // If the length of the decrypted string is 0, throw an error, as this shouldn't ever happen
+    if (decryptedString.length === 0) throw new Error("Decrypted string length is 0 - is your key correct?");
 
     // Return the decrypted string
     return decryptedString.join("");
