@@ -1,6 +1,6 @@
 {
   "name": "strupt",
-  "version": "1.0.2-3",
+  "version": "1.0.3",
   "description": "A string 'encryptor'.",
   "main": "dist/index.js",
   "types": "src/def.d.ts",

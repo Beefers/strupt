@@ -10,7 +10,7 @@ import { Key, EncryptionOptions } from "strupt";
 export function encrypt(string: string, options: EncryptionOptions = { emojis: true, words: true }) {
     // Check that atleast one of the options is true
     if (!options.emojis && !options.words) {
-        throw new Error("Atleast one of the options must be true");
+        throw new Error("At least one of the options must be true");
     }
 
     // Create an array of padding to pick from based on the options provided
@@ -21,8 +21,8 @@ export function encrypt(string: string, options: EncryptionOptions = { emojis: t
     // Scramble the toPick array
     toPick = toPick.sort(() => Math.random() - 0.5);
 
-    // Prepare a Map to build the key
-    let key: Key = new Map();
+    // Prepare an empty key
+    let key: Key = {};
 
     // Prepare an array to build the encrypted string
     let encryptedString = [];
@@ -33,13 +33,13 @@ export function encrypt(string: string, options: EncryptionOptions = { emojis: t
     // Loop through the string, inserting a word after every character
     for (let i = 0; i < originalLength; i++) {
         // Get a random word
-        let word = toPick.filter(i => !key.has(i))[Math.floor(Math.random() * toPick.length)];
+        let word = toPick.filter(i => !key[i])[Math.floor(Math.random() * toPick.length)];
 
-        // Insert three things into the key map, using the word as the key:
+        // Insert three things into the key, using the word as the property name:
         // 1. The original index of the letter
         // 2. A boolean for the casing of the original letter: true for capital, false for lowercase
         // 3. A boolean for if the current letter is a space
-        key.set(word, [i, string[i] === string[i].toUpperCase(), string[i] === " "]);
+        key[word] = [i, string[i] === string[i].toUpperCase(), string[i] === " "];
 
         // Insert the word into the string
         encryptedString.push((string[i] !== " " ? string[i].toLowerCase() : "") + word);
@@ -60,7 +60,7 @@ export function decrypt(string: string, key: Key) {
     let decryptedString = [];
 
     // Iterate over the key, finding the original index of each letter
-    for (let [k, v] of key.entries()) {
+    for (let [k, v] of Object.entries(key)) {
         if (string.includes(k)) {
             // Find the index of the letter in the string
             let index = string.indexOf(k);
