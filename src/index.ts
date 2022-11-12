@@ -21,7 +21,7 @@ export function encrypt(string: string, options: EncryptionOptions = { emojis: t
     // Scramble the toPick array
     toPick = toPick.sort(() => Math.random() - 0.5);
 
-    // Prepare an Map to build the key
+    // Prepare a Map to build the key
     let key: Key = new Map();
 
     // Prepare an array to build the encrypted string
